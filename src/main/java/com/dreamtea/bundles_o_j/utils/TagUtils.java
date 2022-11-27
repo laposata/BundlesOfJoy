@@ -1,0 +1,30 @@
+package com.dreamtea.bundles_o_j.utils;
+
+import net.minecraft.block.Block;
+import net.minecraft.item.Item;
+import net.minecraft.tag.TagKey;
+import net.minecraft.util.Identifier;
+import net.minecraft.util.registry.Registry;
+
+import java.util.List;
+import java.util.stream.Collectors;
+
+public class TagUtils {
+    public static boolean blockIsIn(Block block, TagKey<Block> key){
+        return Registry.BLOCK.getOrCreateEntry(Registry.BLOCK.getKey(block).get()).isIn(key);
+    }
+    public static boolean itemIsIn(Item item, TagKey<Item> key){
+        return Registry.ITEM.getOrCreateEntry(Registry.ITEM.getKey(item).get()).isIn(key);
+    }
+    public static TagKey<Block> createBlockTag(Identifier tag){
+        return TagKey.of(Registry.BLOCK_KEY,tag);
+    }
+    public static TagKey<Item> createItemTag(Identifier tag){
+        return TagKey.of(Registry.ITEM_KEY,tag);
+    }
+
+    public static List<Item> itemsFromBlocks(List<Block> blocks){
+        return blocks.stream().map(Block::asItem).collect(Collectors.toList());
+    }
+
+}

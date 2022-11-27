@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "id": "${mod_id}",
+  "version": "${version}",
+
+  "name": "${mod_name}",
+  "description": "${mod_description}",
+  "authors": [
+    "ToxxicGlitter"
+  ],
+
+
+  "license": "CC0-1.0",
+  "icon": "assets/${mod_id}/DreamTea.png",
+  "accessWidener": "bundles_o_j.accessWidener",
+
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "com.dreamtea.${main_class}"
+    ],
+    "fabric-datagen": [
+      "com.dreamtea.project.datagen.DatagenEntry"
+    ]
+  },
+  "mixins": [
+    "${mod_id}.mixins.json"
+  ],
+
+  "depends": {
+    "fabricloader": ">=0.14.6",
+    "fabric": "*",
+    "minecraft": "~1.19.2",
+    "java": ">=17"
+  }
+}
